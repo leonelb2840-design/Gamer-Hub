@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#00ff00">
-<link rel="apple-touch-icon" href="logo-icono.png">
+    <meta name="theme-color" content="#00ff00">
+    <link rel="apple-touch-icon" href="logo-icono.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeonelB Gamer Hub</title>
@@ -14,12 +14,15 @@
         .card { background: #1a1a1a; border-radius: 10px; padding: 15px; margin-bottom: 15px; border: 1px solid #333; text-align: left; }
         h3 { color: #00fbff; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
         .cmd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .cmd-item { background: #000; padding: 8px; border-radius: 5px; font-size: 12px; border-left: 2px solid #39ff14; }
+        .cmd-item { background: #000; padding: 8px; border-radius: 5px; font-size: 11px; border-left: 2px solid #39ff14; }
         .cmd-name { color: #888; display: block; font-size: 10px; margin-bottom: 3px; }
         .cmd-code { color: #fff; font-weight: bold; font-family: monospace; }
-        input { width: 90%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #39ff14; background: #222; color: white; }
-        #resultado { color: #ffcc00; font-weight: bold; }
+        input, select { width: 90%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #39ff14; background: #222; color: white; display: block; }
+        #resultado { color: #ffcc00; font-weight: bold; margin-top: 5px; }
         .btn-back { display: block; margin: 20px auto; padding: 12px; background: #333; color: white; text-decoration: none; border-radius: 8px; width: 80%; }
+        .tip-list { padding-left: 20px; font-size: 12px; line-height: 1.6; color: #ccc; }
+        .tip-list li { margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px; list-style: none; }
+        .highlight { color: #39ff14; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -30,9 +33,42 @@
 
     <div class="card">
         <h3>🌀 Minecraft: Calculadora Nether</h3>
-        <p style="font-size:12px">Pon coordenada X o Z del mundo real:</p>
+        <p style="font-size:12px">Selecciona el modo de viaje:</p>
+        <select id="modo" onchange="calcular()">
+            <option value="toNether">Overworld ➔ Nether (÷8)</option>
+            <option value="toOverworld">Nether ➔ Overworld (×8)</option>
+        </select>
+        <p style="font-size:12px">Pon coordenada X o Z:</p>
         <input type="number" id="coord" placeholder="Ej: 800" oninput="calcular()">
         <div id="resultado">Ir a: 0</div>
+    </div>
+
+    <div class="card">
+        <h3>⛏️ Minecraft: Comandos Rápidos</h3>
+        <div class="cmd-grid">
+            <div class="cmd-item"><span class="cmd-name">Ver Coordenadas</span><span class="cmd-code">/gamerule showcoordinates true</span></div>
+            <div class="cmd-item"><span class="cmd-name">Mantener Inventario</span><span class="cmd-code">/gamerule keepinventory true</span></div>
+            <div class="cmd-item"><span class="cmd-name">Limpiar Inventario</span><span class="cmd-code">/clear @s</span></div>
+            <div class="cmd-item"><span class="cmd-name">Modo Creativo</span><span class="cmd-code">/gamemode c</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>🚀 Among Us: Tips de Impostor</h3>
+        <ul class="tip-list">
+            <li><span class="highlight">Estrategia Cafetería:</span> Cuando todos estén en Cafetería, sabotea <span style="color: #ff4444;">O2 o Reactor</span> y cierra las puertas de acceso.</li>
+            <li><span class="highlight">Luces:</span> Sabotear luces es mejor que cerrar puertas para eliminar a alguien sin que te vean.</li>
+            <li><span class="highlight">Cámaras:</span> Si la luz de las cámaras parpadea en rojo, alguien te está viendo. ¡No uses las rejillas!</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>📱 Optimización TECNO (HiOS)</h3>
+        <ul class="tip-list">
+            <li><span class="highlight">Limpieza de RAM:</span> Usa el "Congelador" de HiOS para las apps que no uses.</li>
+            <li><span class="highlight">Calor:</span> Si el equipo calienta, quita la funda. El calor baja los FPS.</li>
+            <li><span class="highlight">Datos:</span> Jugar con Modo Avión + WiFi estable reduce el consumo de batería.</li>
+        </ul>
     </div>
 
     <div class="card">
@@ -48,6 +84,16 @@
             <div class="cmd-item"><span class="cmd-name">Paracaídas</span><span class="cmd-code">SKYDIVE</span></div>
             <div class="cmd-item"><span class="cmd-name">Correr Rápido</span><span class="cmd-code">CATCHME</span></div>
             <div class="cmd-item"><span class="cmd-name">Modo Borracho</span><span class="cmd-code">LIQUOR</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📞 GTA IV (Celular)</h3>
+        <div class="cmd-grid">
+            <div class="cmd-item"><span class="cmd-name">Salud y Armas</span><span class="cmd-code">482-555-0100</span></div>
+            <div class="cmd-item"><span class="cmd-name">Quitar Búsqueda</span><span class="cmd-code">267-555-0100</span></div>
+            <div class="cmd-item"><span class="cmd-name">Moto NRG-900</span><span class="cmd-code">625-555-0100</span></div>
+            <div class="cmd-item"><span class="cmd-name">Helicóptero</span><span class="cmd-code">359-555-0100</span></div>
         </div>
     </div>
 
@@ -74,8 +120,8 @@
             <div class="cmd-item"><span class="cmd-name">Vida al tope</span><span class="cmd-code">GESUNDHEIT</span></div>
             <div class="cmd-item"><span class="cmd-name">Más dinero</span><span class="cmd-code">IFIWEREARICHMAN</span></div>
             <div class="cmd-item"><span class="cmd-name">Armadura</span><span class="cmd-code">TORTOISE</span></div>
-            <div class="cmd-item"><span class="cmd-name">Subir nivel búsqueda</span><span class="cmd-code">MOREPOLICEPLEASE</span></div>
-            <div class="cmd-item"><span class="cmd-name">Bajar nivel búsqueda</span><span class="cmd-code">NOPOLICEPLEASE</span></div>
+            <div class="cmd-item"><span class="cmd-name">Subir búsqueda</span><span class="cmd-code">MOREPOLICEPLEASE</span></div>
+            <div class="cmd-item"><span class="cmd-name">Bajar búsqueda</span><span class="cmd-code">NOPOLICEPLEASE</span></div>
             <div class="cmd-item"><span class="cmd-name">Tanque</span><span class="cmd-code">GIVEUSATANK</span></div>
             <div class="cmd-item"><span class="cmd-name">Coches vuelan</span><span class="cmd-code">CHITTYCHITTYBB</span></div>
             <div class="cmd-item"><span class="cmd-name">Destruir coches</span><span class="cmd-code">BANGBANGBANG</span></div>
@@ -88,24 +134,25 @@
     <script>
         function calcular() {
             let val = document.getElementById('coord').value;
-            let res = Math.floor(val / 8);
+            let modo = document.getElementById('modo').value;
+            let res = 0;
+            if (val === "" || isNaN(val)) { res = 0; } 
+            else {
+                if (modo === "toNether") { res = Math.floor(val / 8); } 
+                else { res = Math.floor(val * 8); }
+            }
             document.getElementById('resultado').innerText = "Ir a: " + res;
         }
     </script>
-<script>
-  // 🎮 Gamer Hub: Control de Misión Offline
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => {
-          console.log('%c🎮 [GAMER-HUB]: ¡Sistemas en línea! Base de datos lista.', 'color: #00ff00; font-weight: bold; background: #000; padding: 5px; border: 1px solid #00ff00;');
-        })
-        .catch(err => {
-          console.error('%c⚠️ [GAMER-HUB]: Error en el enlace de datos.', 'color: #ff0000;', err);
-        });
-    });
-  }
-</script>
-    
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    console.log('%c🎮 [GAMER-HUB]: Sistemas cargados.', 'color: #00ff00; font-weight: bold;');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
