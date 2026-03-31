@@ -1,0 +1,16 @@
+{
+  "short_name": "GamerHub",
+  "name": "Gamer Hub - LeonelB Official",
+  "icons": [
+    {
+      "src": "./logo-icono.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#00d4ff",
+  "background_color": "#000000"
+}
