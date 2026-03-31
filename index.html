@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00ff00">
+<link rel="apple-touch-icon" href="logo-icono.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeonelB Gamer Hub</title>
@@ -80,7 +83,7 @@
         </div>
     </div>
 
-    <a href="https://leonelb2840-design.github.io/calculadora-/" class="btn-back">⬅ Calculadora</a>
+    <a href="https://leonelb2840-design.github.io/Scientific-Calculator-Lion/" class="btn-back">⬅ Calculadora</a>
 
     <script>
         function calcular() {
@@ -89,6 +92,20 @@
             document.getElementById('resultado').innerText = "Ir a: " + res;
         }
     </script>
-
+<script>
+  // 🎮 Gamer Hub: Control de Misión Offline
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => {
+          console.log('%c🎮 [GAMER-HUB]: ¡Sistemas en línea! Base de datos lista.', 'color: #00ff00; font-weight: bold; background: #000; padding: 5px; border: 1px solid #00ff00;');
+        })
+        .catch(err => {
+          console.error('%c⚠️ [GAMER-HUB]: Error en el enlace de datos.', 'color: #ff0000;', err);
+        });
+    });
+  }
+</script>
+    
 </body>
 </html>
